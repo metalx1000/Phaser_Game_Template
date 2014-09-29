@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>My Game</title>
-        <script src="js/phaser.min.js"></script>
+        <script src="js/phaser.js"></script>
         <style>
             canvas, html, body {
                 margin:0;
@@ -28,19 +28,28 @@
                 var game = new Phaser.Game(height, width, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
                 function preload() {
+                    //Load Animation                    
+                    game.load.spritesheet('load_ani', 'res/load_ani.png', 64, 64);
+
+                }
+
+                function create() {
+
+                    game.stage.backgroundColor = 'white';
                     text = game.add.text(32, 32, 'Click to start load', { fill: '#ffffff' });
                     //  You can listen for each of these events from Phaser.Loader
                     game.load.onLoadStart.add(loadStart, this);
                     game.load.onFileComplete.add(fileComplete, this);
                     game.load.onLoadComplete.add(loadComplete, this);
 
+                    //Load Animation                    
+                    load_icon = game.add.sprite(width * 0.5, game.world.height * 0.5, 'load_ani');
+                    load_icon.anchor.setTo(.5,.5);
+                    load_icon.animations.add('load');
+                    load_icon.animations.play('load', 10, true);
+
                     start();
 
-                }
-
-                function create() {
-
-                    game.stage.backgroundColor = 'black';
 
                     //  Just to kick things off
                     //button = game.add.button(game.world.centerX - 95, 400, 'button', start, this, 2, 1, 0);
