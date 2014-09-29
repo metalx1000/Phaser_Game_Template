@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Game</title>
+        <script src="js/phaser.min.js"></script>
+        <style>
+            canvas, html, body {
+                margin:0;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                background-color: black;
+
+                height: 100%;
+                vertical-align: middle;
+            }
+        </style>
+
+    </head>
+    <body>
+        <script>
+                var height = 720;
+                var width = 1280;
+                var text;
+
+
+                var game = new Phaser.Game(height, width, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+
+                function preload() {
+                    text = game.add.text(32, 32, 'Click to start load', { fill: '#ffffff' });
+                    //  You can listen for each of these events from Phaser.Loader
+                    game.load.onLoadStart.add(loadStart, this);
+                    game.load.onFileComplete.add(fileComplete, this);
+                    game.load.onLoadComplete.add(loadComplete, this);
+
+                    start();
+
+                }
+
+                function create() {
+
+                    game.stage.backgroundColor = 'black';
+
+                    //  Just to kick things off
+                    //button = game.add.button(game.world.centerX - 95, 400, 'button', start, this, 2, 1, 0);
+
+                    //  Progress report
+
+                }
+
+                function update(){
+
+                }
+
+                function start() {
+                    //This is where you put thing that are going to load durning load screen
+                    game.load.image('picture3', 'http://i3.ytimg.com/vi/KvJqlwEQeBg/hqdefault.jpg');
+
+                    game.load.start();
+
+
+                }
+
+                function loadStart() {
+
+                    text.setText("Loading ...");
+
+                }
+
+                //  This callback is sent the following parameters:
+                function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
+
+                    text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
+
+
+                }
+
+                function loadComplete() {
+
+                    text.setText("Load Complete");
+
+                }
+        </script>
+    </body>
+</html>
