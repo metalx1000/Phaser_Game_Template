@@ -25,7 +25,7 @@
                 var text;
 
 
-                var game = new Phaser.Game(height, width, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+                var game = new Phaser.Game(width, height, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
                 function preload() {
                     //Load Animation                    
@@ -35,7 +35,7 @@
 
                 function create() {
 
-                    game.stage.backgroundColor = 'white';
+                    game.stage.backgroundColor = '#3d3d3d';
                     text = game.add.text(32, 32, 'Click to start load', { fill: '#ffffff' });
                     //  You can listen for each of these events from Phaser.Loader
                     game.load.onLoadStart.add(loadStart, this);
@@ -44,6 +44,7 @@
 
                     //Load Animation                    
                     load_icon = game.add.sprite(width * 0.5, game.world.height * 0.5, 'load_ani');
+                    load_icon.scale.setTo(2,2);
                     load_icon.anchor.setTo(.5,.5);
                     load_icon.animations.add('load');
                     load_icon.animations.play('load', 10, true);
