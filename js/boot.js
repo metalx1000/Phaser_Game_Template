@@ -4,7 +4,7 @@ var boot = function(game){
   
 boot.prototype = {
 	preload: function(){
-            this.game.load.spritesheet('load_ani', 'res/load_ani.png', 64, 64);
+            this.game.load.spritesheet('load_ani', 'res/load_ani.png', 128, 128);
 	},
   	create: function(){
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
