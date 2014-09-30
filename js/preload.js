@@ -23,6 +23,7 @@ preload.prototype = {
             this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 
 	    this.game.load.spritesheet("player","res/sprites/player.png",64,64);
+	    this.game.load.spritesheet("player2","res/sprites/player2.png",64,64);
 
 	    this.game.load.image("play_btn","res/play_btn2.png");
 	    this.game.load.image("game_title","res/game_title.png");

@@ -13,12 +13,18 @@ gameTitle.prototype = {
                 this.game.physics.arcade.enable(simon);
                 simon.body.immovable = true;
 
-                this.load_player();
+                this.load_player("player", 0, 0, "right");
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
 	},
         update: function(){
-            this.game.physics.arcade.collide(player, simon);
+                this.game.physics.arcade.collide(player, simon);
+            
+                if(player.position.x > this.game.world.width){
+                    this.load_player("player2", this.game.world.width, 0, "left");
+                }else if(player.position.x < 0){
+                    this.load_player("player", 0, 0, "right");
+                }
         },
 	playTheGame: function(){
                 click.play();
@@ -29,18 +35,22 @@ gameTitle.prototype = {
             this.game.scale.startFullScreen();
         },
 
-        load_player: function(){
+        load_player: function(pl, posx, posy, direction){
             //animations
-            player = this.game.add.sprite(0,0, 'player');
-            player.animations.add('left', [0, 1, 2, 3, 4, 5, 6], 10, true);
-            player.animations.add('right', [7, 8, 9, 10, 11, 12], 10, true);
+            player = this.game.add.sprite(posx,posy, pl);
+            player.animations.add('left', [0, 1, 2, 3, 4, 5], 10, true);
+            player.animations.add('right', [6, 7, 8, 9, 10, 11], 10, true);
             this.game.physics.arcade.enable(player);
-            player.body.velocity.x = 150;
             player.body.gravity.y = 500;
             player.body.bounce.y = 0.2;
             //player.body.collideWorldBounds = true;
-
-            player.animations.play('right');
+            if(direction == "right"){
+                player.body.velocity.x = 150;
+                player.animations.play('right');
+            }else{
+                player.animations.play('left');
+                player.body.velocity.x = -150;
+            }
 
         }
 }
