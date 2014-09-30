@@ -16,8 +16,12 @@ preload.prototype = {
 	    this.game.load.image("click_me","res/click_me.png");
 	    this.game.load.image("game_over","res/game_over.png");
 	    this.game.load.image("start_over","res/start_over.png");
+
+            //sounds
+            this.game.load.audio('click', ['res/sounds/click.mp3','res/sounds/click.ogg']);
 	},
   	create: function(){
+                click = this.game.add.audio("click");
 		this.game.state.start("GameTitle");
 	}
 }

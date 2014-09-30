@@ -8,6 +8,7 @@ gameOver.prototype = {
 		start_over.anchor.setTo(0.5,0.5);
 	},
         gameOver: function(){
+            click.play();
             this.game.state.start("GameTitle");
         }
 }

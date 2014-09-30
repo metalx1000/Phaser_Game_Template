@@ -8,6 +8,7 @@ theGame.prototype = {
              
 	},
         clickMe: function(){
+            click.play();
             this.game.state.start("GameOver");
         }
 }

@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <title>My Game</title>
         <script src="js/phaser.js"></script>
+        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
     
         <script src="js/boot.js"></script>
         <script src="js/preload.js"></script>
@@ -16,14 +17,10 @@
                 margin:0; 
                 margin-left: auto; 
                 margin-right: auto; 
-                display: block; 
-                background-color: black; 
  
-                height: 100%; 
-                vertical-align: middle; 
             } 
         </style>
-        <!--<link rel="stylesheet" type="text/css" src="css/basic.css"/>-->
+        <!--<link rel="stylesheet" type="text/css" href="css/basic.css"/>-->
     </head>
     <body>
         <script>
@@ -36,7 +33,8 @@
                 game.state.add("GameTitle",gameTitle);
                 game.state.add("TheGame",theGame);
                 game.state.add("GameOver",gameOver);
-                game.state.start("Boot");
+                game.state.start("Boot")
+
             })();  
         </script>
     </body>

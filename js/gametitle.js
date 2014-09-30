@@ -6,8 +6,15 @@ gameTitle.prototype = {
 		gameTitle.anchor.setTo(0.5,0.5);
 		var playButton = this.game.add.button(this.game.world.width * 0.5,320,"play_btn",this.playTheGame,this);
 		playButton.anchor.setTo(0.5,0.5);
+
+                this.game.input.onDown.add(this.fullscreen, this);
 	},
 	playTheGame: function(){
+                click.play();
 		this.game.state.start("TheGame");
-	}
+	},
+        fullscreen: function(){
+            this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+            this.game.scale.startFullScreen();
+        }
 }
