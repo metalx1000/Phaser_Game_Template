@@ -7,6 +7,9 @@ gameTitle.prototype = {
 		var playButton = this.game.add.button(this.game.world.width * 0.5,320,"play_btn",this.playTheGame,this);
 		playButton.anchor.setTo(0.5,0.5);
 
+		var simon = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .75,"simon");
+                simon.anchor.setTo(0.5,0.5);
+                //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
 	},
 	playTheGame: function(){

@@ -16,12 +16,17 @@ preload.prototype = {
 	    this.game.load.image("click_me","res/click_me.png");
 	    this.game.load.image("game_over","res/game_over.png");
 	    this.game.load.image("start_over","res/start_over.png");
+	    this.game.load.image("simon","res/simon.png");
 
             //sounds
             this.game.load.audio('click', ['res/sounds/click.mp3','res/sounds/click.ogg']);
+            //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
+            this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 	},
   	create: function(){
                 click = this.game.add.audio("click");
+                music = this.game.add.audio("music");
+                music.play('',0,1,true);
 		this.game.state.start("GameTitle");
 	}
 }
