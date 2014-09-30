@@ -17,7 +17,13 @@ preload.prototype = {
             this.load.setPreloadSprite(load_icon);
             
             //load other preload stuff here
-	    //this.game.load.spritesheet("sprite","res/sprite.png",64,64);
+            //sounds
+            this.game.load.audio('click', ['res/sounds/click.mp3','res/sounds/click.ogg']);
+            //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
+            this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
+
+	    this.game.load.spritesheet("player","res/sprites/player.png",64,64);
+
 	    this.game.load.image("play_btn","res/play_btn2.png");
 	    this.game.load.image("game_title","res/game_title.png");
 	    this.game.load.image("click_me","res/click_me.png");
@@ -25,10 +31,6 @@ preload.prototype = {
 	    this.game.load.image("start_over","res/start_over.png");
 	    this.game.load.image("simon","res/simon.png");
 
-            //sounds
-            this.game.load.audio('click', ['res/sounds/click.mp3','res/sounds/click.ogg']);
-            //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
-            this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 	},
   	create: function(){
                 click = this.game.add.audio("click");
@@ -48,7 +50,7 @@ preload.prototype = {
 
         //  This callback is sent the following parameters:
         fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
-            //console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
+            console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
             load_text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
         }
 
