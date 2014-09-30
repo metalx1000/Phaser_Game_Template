@@ -3,12 +3,12 @@ var gameTitle = function(game){}
 gameTitle.prototype = {
   	create: function(){
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
-		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,160,"game_title");
+		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
 		gameTitle.anchor.setTo(0.5,0.5);
-		var playButton = this.game.add.button(this.game.world.width * 0.5,320,"play_btn",this.playTheGame,this);
+		var playButton = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * .2,"play_btn",this.playTheGame,this);
 		playButton.anchor.setTo(0.5,0.5);
 
-		simon = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .75,"simon");
+		simon = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .9,"simon");
                 simon.anchor.setTo(0.5,0.5);
                 this.game.physics.arcade.enable(simon);
                 simon.body.immovable = true;
