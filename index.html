@@ -4,92 +4,28 @@
         <meta charset="UTF-8" />
         <title>My Game</title>
         <script src="js/phaser.js"></script>
-        <style>
-            canvas, html, body {
-                margin:0;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                background-color: black;
+    
+        <script src="js/boot.js"></script>
+        <script src="js/preload.js"></script>
+        <script src="js/gametitle.js"></script>
+        <script src="js/thegame.js"></script>
+        <script src="js/gameover.js"></script> 
 
-                height: 100%;
-                vertical-align: middle;
-            }
-        </style>
-
+        <link rel="stylesheet" type="text/css" src="css/basic.css"/>
     </head>
     <body>
         <script>
-                var height = 720;
-                var width = 1280;
-                var text;
-
-
-                var game = new Phaser.Game(width, height, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
-
-                function preload() {
-                    //Load Animation                    
-                    game.load.spritesheet('load_ani', 'res/load_ani.png', 64, 64);
-
-                }
-
-                function create() {
-
-                    game.stage.backgroundColor = '#3d3d3d';
-                    text = game.add.text(32, 32, 'Loading', { fill: '#ffffff' });
-                    //  You can listen for each of these events from Phaser.Loader
-                    game.load.onLoadStart.add(loadStart, this);
-                    game.load.onFileComplete.add(fileComplete, this);
-                    game.load.onLoadComplete.add(loadComplete, this);
-
-                    //Load Animation                    
-                    load_icon = game.add.sprite(width * 0.5, game.world.height * 0.5, 'load_ani');
-                    load_icon.scale.setTo(2,2);
-                    load_icon.anchor.setTo(.5,.5);
-                    load_icon.animations.add('load');
-                    load_icon.animations.play('load', 10, true);
-
-                    start();
-
-
-                    //  Just to kick things off
-                    //button = game.add.button(game.world.centerX - 95, 400, 'button', start, this, 2, 1, 0);
-
-                    //  Progress report
-
-                }
-
-                function update(){
-
-                }
-
-                function start() {
-                    //game.load.image('picture1', 'res/picture1.jpg');
-
-                    game.load.start();
-
-
-                }
-
-                function loadStart() {
-
-                    text.setText("Loading ...");
-
-                }
-
-                //  This callback is sent the following parameters:
-                function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
-
-                    text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
-
-                }
-
-                function loadComplete() {
-
-                    text.setText("Load Complete");
-                    load_icon.kill();
-
-                }
+            (function() {
+                var height = 1280;
+                var width = 720;
+                var game = new Phaser.Game(width, height, Phaser.AUTO, "game");
+                game.state.add("Boot",boot);
+                game.state.add("Preload",preload);
+                game.state.add("GameTitle",gameTitle);
+                game.state.add("TheGame",theGame);
+                game.state.add("GameOver",gameOver);
+                game.state.start("Boot");
+            })();  
         </script>
     </body>
 </html>
