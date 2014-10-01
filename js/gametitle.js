@@ -9,6 +9,8 @@ gameTitle.prototype = {
 		playButton.anchor.setTo(0.5,0.5);
 
 		simon = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .9,"simon");
+                simon.inputEnabled = true;
+                simon.events.onInputDown.add(this.simonWeb,this);
                 simon.anchor.setTo(0.5,0.5);
                 this.game.physics.arcade.enable(simon);
                 simon.body.immovable = true;
@@ -25,6 +27,9 @@ gameTitle.prototype = {
                 }else if(player.position.x < 0){
                     this.load_player("player", 0, 0, "right");
                 }
+        },
+        simonWeb: function(){
+            window.open("http://multi8it.blogspot.com", "_blank");
         },
 	playTheGame: function(){
                 click.play();
