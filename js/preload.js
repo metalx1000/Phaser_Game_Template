@@ -31,6 +31,7 @@ preload.prototype = {
 	    this.game.load.image("click_me","res/click_me.png");
 	    this.game.load.image("game_over","res/game_over.png");
 	    this.game.load.image("start_over","res/start_over.png");
+	    this.game.load.image("main_title","res/main_title.png");
 	    this.game.load.image("simon","res/simon.png");
 
 	},

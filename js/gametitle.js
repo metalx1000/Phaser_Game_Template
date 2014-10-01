@@ -9,6 +9,7 @@ gameTitle.prototype = {
 		playButton.anchor.setTo(0.5,0.5);
 
                 this.create_simon();
+                this.main_title();
                 this.load_player("player", 0, 0, "right");
 
                 //go full screen on click
@@ -60,5 +61,16 @@ gameTitle.prototype = {
                 simon.anchor.setTo(0.5,0.5);
                 this.game.physics.arcade.enable(simon);
                 simon.body.immovable = true;
-        }
+        },
+        main_title: function(){
+                title = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .5,"main_title");
+                title.inputEnabled = true;
+                title.events.onInputDown.add(this.krisWeb,this);
+                title.anchor.setTo(0.5,0.5);
+        },
+        krisWeb: function(){
+            window.open("http://filmsbykris.com", "_blank");
+        },
+
+
 }   
