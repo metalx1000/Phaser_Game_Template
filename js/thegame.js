@@ -3,7 +3,7 @@ var theGame = function(game){
 
 theGame.prototype = {
   	create: function(){
-            var click_me = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * 0.2,"click_me",this.endGame,this);
+            var click_me = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * 0.2,"click_me",this.level1,this);
 	    click_me.anchor.setTo(0.5,0.5);
 	    this.create_player("playerf");
 	},
@@ -18,9 +18,9 @@ theGame.prototype = {
                 this.create_player("playerf");
             }
         },
-        endGame: function(){
+        level1: function(){
             click.play();
-            this.game.state.start("GameOver");
+            this.game.state.start("Level1");
         },
 	create_player: function(pl){
             //player animation

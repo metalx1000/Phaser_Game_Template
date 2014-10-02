@@ -34,6 +34,7 @@ preload.prototype = {
 	    this.game.load.image("start_over","res/start_over.png");
 	    this.game.load.image("main_title","res/main_title.png");
 	    this.game.load.image("simon","res/simon.png");
+	    this.game.load.image("brick","res/brick.png");
 
 	},
   	create: function(){
