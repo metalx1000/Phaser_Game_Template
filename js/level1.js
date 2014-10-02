@@ -6,8 +6,8 @@ level1.prototype = {
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
 		gameTitle.anchor.setTo(0.5,0.5);
-		var playButton = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * .2,"play_btn",this.playTheGame,this);
-		playButton.anchor.setTo(0.5,0.5);
+		var exit_btn = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * .2,"exit",this.exit,this);
+		exit_btn.anchor.setTo(0.5,0.5);
 
                 bricks = this.game.add.group();
                 bricks.enableBody = true;
@@ -27,8 +27,6 @@ level1.prototype = {
                     var player = players.children[i];
                     var v = Math.floor(Math.random() * 150) + 50
                     if(player.position.x > this.game.world.width){
-                        console.log(delay);
-                        console.log("test");
                         this.load_player("player2", this.game.world.width, 0, "left");
                         player.body.velocity.x = -v;
                         player.animations.play('left');                    
@@ -39,9 +37,9 @@ level1.prototype = {
                     }
                 }
         },
-	playTheGame: function(){
+	exit: function(){
                 click.play();
-		this.game.state.start("TheGame");
+		this.game.state.start("GameOver");
 	},
         fullscreen: function(){
             this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -57,6 +55,9 @@ level1.prototype = {
                 player.animations.add('right', [11,10,9,8,7,6], 10, true);
                 player.body.gravity.y = 500;
                 player.body.bounce.y = 0.2;
+                player.inputEnabled = true;
+                player.events.onInputOver.add(this.player_jump,this);
+
                 if(direction == "right"){
                     player.body.velocity.x = 150;
                     player.animations.play('right');
@@ -65,6 +66,10 @@ level1.prototype = {
                     player.body.velocity.x = -150;
                 }
             }
+        },
+
+        player_jump: function(player){
+            player.body.velocity.y = -500;
         },
         load_ground: function(){
             for(var x=1;x<3;x++){
