@@ -69,6 +69,8 @@ level1.prototype = {
         },
 
         player_jump: function(player){
+            var x = Math.floor(Math.random() * touch.length);
+            touch[x].play();
             player.body.velocity.y = -500;
         },
         load_ground: function(){

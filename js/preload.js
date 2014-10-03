@@ -19,6 +19,9 @@ preload.prototype = {
             //load other preload stuff here
             //sounds
             this.game.load.audio('click', ['res/sounds/click.mp3','res/sounds/click.ogg']);
+            for(var i = 1;i <= 3 ;i++){
+                this.game.load.audio('touch' + i, ['res/sounds/touch'+i+'.mp3','res/sounds/touch'+i+'.ogg']);
+            }
             //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
             this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 
@@ -40,8 +43,12 @@ preload.prototype = {
 	},
   	create: function(){
                 click = this.game.add.audio("click");
+                touch=[];
+                for(var i = 1;i <= 3 ;i++){
+                    touch.push(this.game.add.audio("touch"+i));
+                }
                 music = this.game.add.audio("music");
-                music.play('',0,1,true);
+                music.play('',0,0.3,true);
 	},
 
         loadComplete: function(){
