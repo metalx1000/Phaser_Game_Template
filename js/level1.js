@@ -51,6 +51,7 @@ level1.prototype = {
                 delay = 200;
                 //animations
                 var player = players.create(posx, posy, pl);
+                player.anchor.setTo(0.5,0.5);
                 player.animations.add('left', [0, 1, 2, 3, 4, 5], 10, true);
                 player.animations.add('right', [11,10,9,8,7,6], 10, true);
                 player.body.gravity.y = 500;
