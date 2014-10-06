@@ -18,10 +18,20 @@ preload.prototype = {
             
             //load other preload stuff here
             //sounds
-            this.game.load.audio('click', ['res/sounds/click.mp3','res/sounds/click.ogg']);
+            var sounds = ["click"]
+            for(var i = 0; i < sounds.length;i++){
+                this.game.load.audio(sounds[i], ['res/sounds/' + sounds[i] + '.mp3','res/sounds/' + sounds[i] + '.ogg']);
+            }
+
             for(var i = 1;i <= 3 ;i++){
                 this.game.load.audio('touch' + i, ['res/sounds/touch'+i+'.mp3','res/sounds/touch'+i+'.ogg']);
             }
+
+            var images = ["play_btn","game_title","click_me","game_over","start_over","main_title","simon","brick","exit"]
+            for(var i = 0; i < images.length;i++){
+                this.game.load.image(images[i],"res/" + images[i] + ".png");
+            }
+
             //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
             this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 
@@ -29,16 +39,6 @@ preload.prototype = {
 	    this.game.load.spritesheet("player2","res/sprites/player2.png",64,64);
 	    this.game.load.spritesheet("playerf","res/sprites/playerf.png",128,96);
 	    this.game.load.spritesheet("playerf2","res/sprites/playerf2.png",128,96);
-
-	    this.game.load.image("play_btn","res/play_btn2.png");
-	    this.game.load.image("game_title","res/game_title.png");
-	    this.game.load.image("click_me","res/click_me.png");
-	    this.game.load.image("game_over","res/game_over.png");
-	    this.game.load.image("start_over","res/start_over.png");
-	    this.game.load.image("main_title","res/main_title.png");
-	    this.game.load.image("simon","res/simon.png");
-	    this.game.load.image("brick","res/brick.png");
-	    this.game.load.image("exit","res/exit.png");
 
 	},
   	create: function(){
