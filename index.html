@@ -26,8 +26,10 @@
     <body>
         <script>
             (function() {
-                var height = 1280;
-                var width = 720;
+                //vertical
+                var height = 1280;var width = 720;
+                //landscape
+                //var height = 720;var width = 1280;
                 var game = new Phaser.Game(width, height, Phaser.AUTO, "game");
                 game.state.add("Boot",boot);
                 game.state.add("Preload",preload);
