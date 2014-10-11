@@ -5,8 +5,7 @@ info.prototype = {
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
 		gameTitle.anchor.setTo(0.5,0.5);
-		var exitButton = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * .2,"exit",this.menu,this);
-		exitButton.anchor.setTo(0.5,0.5);
+		var exitButton = this.create_button(this.game.world.width * 0.5,this.game.world.height * .2,"exit","GameTitle");
 
                 this.create_simon();
                 this.get_info();
@@ -19,10 +18,6 @@ info.prototype = {
         simonWeb: function(){
             window.open("http://multi8it.blogspot.com", "_blank");
         },
-	menu: function(){
-                click.play();
-		this.game.state.start("GameTitle");
-	},
         fullscreen: function(){
             this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.game.scale.startFullScreen();
@@ -58,5 +53,22 @@ info.prototype = {
         goto_url: function(text){
             click.play();
             window.open(text.url, "_blank");
-        }
+        },
+        create_button: function(x,y,img,state){
+            var btn = this.game.add.button(x,y,img,this.change_state,this);
+            btn.state = state;
+            btn.anchor.setTo(0.5,0.5);
+            btn.events.onInputOver.add(function(_this){
+                var tween = _this.game.add.tween(_this.scale)
+                    .to({ x: 1.5, y: 1.5 }, 200)
+                    .to({ x: 1, y: 1 }, 400)
+                    .start();
+            });
+        },
+        change_state: function(_this){
+            click.play();
+            this.game.state.start(_this.state);
+        },
+
+
 }   
