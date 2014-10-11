@@ -27,7 +27,12 @@ gameTitle.prototype = {
             var btn = this.game.add.button(x,y,img,this.change_state,this);
             btn.state = state;
             btn.anchor.setTo(0.5,0.5);
-            //btn.scale.setTo(0.7,0.7);
+            btn.events.onInputOver.add(function(_this){
+                var tween = _this.game.add.tween(_this.scale)
+                    .to({ x: 1.5, y: 1.5 }, 200)
+                    .to({ x: 1, y: 1 }, 400)
+                    .start();
+            });
         },
         change_state: function(_this){
             click.play();
