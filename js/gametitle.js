@@ -5,13 +5,11 @@ gameTitle.prototype = {
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
 		gameTitle.anchor.setTo(0.5,0.5);
-		var playButton = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * .2,"play_btn",this.playTheGame,this);
-		playButton.anchor.setTo(0.5,0.5);
-
+                this.create_button(this.game.world.width * 0.5,this.game.world.height * .4,"play_btn","TheGame");
                 this.info_btn();
                 this.create_simon();
-                this.main_title();
-                this.load_player("player", 0, 0, "right");
+                //this.main_title();
+                this.load_player("player", this.game.world.width * 0.2, -64, "right");
 
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
@@ -20,10 +18,20 @@ gameTitle.prototype = {
                 this.game.physics.arcade.collide(player, simon);
             
                 if(player.position.x > this.game.world.width){
-                    this.load_player("player2", this.game.world.width, 0, "left");
+                    this.load_player("player2", this.game.world.width * 0.8, -64, "left");
                 }else if(player.position.x < 0){
-                    this.load_player("player", 0, 0, "right");
+                    this.load_player("player", this.game.world.width * 0.2, -64, "right");
                 }
+        },
+        create_button: function(x,y,img,state){
+            var btn = this.game.add.button(x,y,img,this.change_state,this);
+            btn.state = state;
+            btn.anchor.setTo(0.5,0.5);
+            //btn.scale.setTo(0.7,0.7);
+        },
+        change_state: function(_this){
+            click.play();
+            this.game.state.start(_this.state);            
         },
         simonWeb: function(){
             window.open("http://multi8it.blogspot.com", "_blank");
