@@ -63,7 +63,7 @@ preload.prototype = {
 
         //  This callback is sent the following parameters:
         fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
-            console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
+            //console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
             load_text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
         }
 
