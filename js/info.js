@@ -9,6 +9,7 @@ info.prototype = {
 		exitButton.anchor.setTo(0.5,0.5);
 
                 this.create_simon();
+                this.get_info();
 
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
@@ -35,5 +36,16 @@ info.prototype = {
                 this.game.physics.arcade.enable(simon);
                 simon.body.immovable = true;
         },
-
+        get_info: function(){
+            $.getJSON( "info.json", function( data ) {
+                console.log("data");
+                var items = [];
+                for(var i = 0;i<data.length;i++){
+                    var text=data[i].text;  
+                    var url=data[i].url;  
+                    console.log(text +":"+ url);
+                }
+             
+            });
+        }
 }   
