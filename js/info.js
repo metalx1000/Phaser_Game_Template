@@ -37,15 +37,26 @@ info.prototype = {
                 simon.body.immovable = true;
         },
         get_info: function(){
+            _this = this;
             $.getJSON( "info.json", function( data ) {
-                console.log("data");
-                var items = [];
+                var y = _this.game.world.height * 0.3;
                 for(var i = 0;i<data.length;i++){
                     var text=data[i].text;  
-                    var url=data[i].url;  
+                    var url=data[i].url; 
+
+                    var style = { font: "32px Arial", fill: "#ff0044", align: "center" };
+                    var t = _this.game.add.text(_this.game.world.centerX,64*i+y, text, style);
+                    t.url = url;
+                    t.inputEnabled = true; 
+                    t.events.onInputDown.add(_this.goto_url,this);
+                    t.anchor.setTo(0.5,0.5);
                     console.log(text +":"+ url);
                 }
              
             });
+        },
+        goto_url: function(text){
+            click.play();
+            window.open(text.url, "_blank");
         }
 }   
