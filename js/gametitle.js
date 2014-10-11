@@ -8,6 +8,7 @@ gameTitle.prototype = {
 		var playButton = this.game.add.button(this.game.world.width * 0.5,this.game.world.height * .2,"play_btn",this.playTheGame,this);
 		playButton.anchor.setTo(0.5,0.5);
 
+                this.info_btn();
                 this.create_simon();
                 this.main_title();
                 this.load_player("player", 0, 0, "right");
@@ -72,5 +73,12 @@ gameTitle.prototype = {
             window.open("http://filmsbykris.com", "_blank");
         },
 
-
+        info_btn: function(){
+            var playButton = this.game.add.button(this.game.world.width * 0.9,this.game.world.height * 0.03,"info",this.info_click,this);
+            playButton.anchor.setTo(0.5,0.5);
+        },
+        info_click: function(){
+            click.play();
+            this.game.state.start("info");
+        }
 }   

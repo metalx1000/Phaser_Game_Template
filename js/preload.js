@@ -27,7 +27,7 @@ preload.prototype = {
                 this.game.load.audio('touch' + i, ['res/sounds/touch'+i+'.mp3','res/sounds/touch'+i+'.ogg']);
             }
 
-            var images = ["play_btn","game_title","click_me","game_over","start_over","main_title","simon","brick","exit"]
+            var images = ["play_btn","game_title","click_me","game_over","start_over","main_title","simon","brick","exit", "info"]
             for(var i = 0; i < images.length;i++){
                 this.game.load.image(images[i],"res/" + images[i] + ".png");
             }

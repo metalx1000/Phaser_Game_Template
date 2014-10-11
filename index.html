@@ -13,6 +13,7 @@
         <script src="js/thegame.js"></script>
         <script src="js/level1.js"></script>
         <script src="js/gameover.js"></script> 
+        <script src="js/info.js"></script> 
 
         <style>
             canvas, html, body { 
@@ -38,6 +39,7 @@
                 game.state.add("TheGame",theGame);
                 game.state.add("Level1",level1);
                 game.state.add("GameOver",gameOver);
+                game.state.add("info",info);
                 game.state.start("Boot")
 
             })();  
