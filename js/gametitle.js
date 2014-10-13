@@ -12,7 +12,8 @@ gameTitle.prototype = {
                 //this.main_title();
                 this.load_player("player", this.game.world.width * 0.2, -64, "right");
 
-                mute_btn = game.add.button(game.world.centerX - 95, 400, 'mute', actionOnClick, this, 2, 1, 0);
+                mute = false;
+                mute_btn = this.game.add.button(this.game.world.width * 0.9, 10, 'mute', this.mute, this);
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
 	},
@@ -87,5 +88,15 @@ gameTitle.prototype = {
         krisWeb: function(){
             window.open("http://filmsbykris.com", "_blank");
         },
-
+        mute: function(){
+            if(mute == false){
+                mute = true;
+                music.stop();
+                mute_btn.frame = 1;
+            }else{
+                mute = false;
+                music.play();
+                mute_btn.frame = 0;
+            }
+        }
 }   
