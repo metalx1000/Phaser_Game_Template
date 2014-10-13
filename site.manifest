@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413233400
+# version 1413233765
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -36,6 +36,7 @@ CACHE MANIFEST
 ./favicon.png
 ./data/info.json
 ./LICENSE
+./test.sh
 ./js/gametitle.js
 ./js/preload.js
 ./js/boot.js
