@@ -12,6 +12,7 @@ gameTitle.prototype = {
                 //this.main_title();
                 this.load_player("player", this.game.world.width * 0.2, -64, "right");
 
+                mute_btn = game.add.button(game.world.centerX - 95, 400, 'mute', actionOnClick, this, 2, 1, 0);
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
 	},

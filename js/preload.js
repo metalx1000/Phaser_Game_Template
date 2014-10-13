@@ -18,7 +18,7 @@ preload.prototype = {
             
             //load other preload stuff here
             //sounds
-            var sounds = ["click"]
+            var sounds = ["click"];
             for(var i = 0; i < sounds.length;i++){
                 this.game.load.audio(sounds[i], ['res/sounds/' + sounds[i] + '.mp3','res/sounds/' + sounds[i] + '.ogg']);
             }
@@ -27,7 +27,7 @@ preload.prototype = {
                 this.game.load.audio('touch' + i, ['res/sounds/touch'+i+'.mp3','res/sounds/touch'+i+'.ogg']);
             }
 
-            var images = ["play_btn","game_title","click_me","game_over","start_over","main_title","simon","brick","exit", "info"]
+            var images = ["play_btn","game_title","click_me","game_over","start_over","main_title","simon","brick","exit", "info"];
             for(var i = 0; i < images.length;i++){
                 this.game.load.image(images[i],"res/" + images[i] + ".png");
             }
@@ -35,8 +35,12 @@ preload.prototype = {
             //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
             this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 
-	    this.game.load.spritesheet("player","res/sprites/player.png",64,64);
-	    this.game.load.spritesheet("player2","res/sprites/player2.png",64,64);
+            //load sprites that are 64x64
+            var sprites64 = ["player","player2","mute"];
+            for(var i = 0; i < sprites64.length;i++){
+                this.game.load.spritesheet(sprites64[i],"res/sprites/"+sprites64[i]+".png",64,64);
+            }
+
 	    this.game.load.spritesheet("playerf","res/sprites/playerf.png",128,96);
 	    this.game.load.spritesheet("playerf2","res/sprites/playerf2.png",128,96);
 

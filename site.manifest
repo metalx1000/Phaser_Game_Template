@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413233765
+# version 1413234472
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -24,6 +24,7 @@ CACHE MANIFEST
 ./res/sprites/playerf.png
 ./res/sprites/player2.png
 ./res/sprites/playerf2.png
+./res/sprites/mute.png
 ./res/sprites/player.png
 ./res/game_over.png
 ./res/start_over.png
