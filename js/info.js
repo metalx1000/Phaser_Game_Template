@@ -33,7 +33,7 @@ info.prototype = {
         },
         get_info: function(){
             _this = this;
-            $.getJSON( "info.json", function( data ) {
+            $.getJSON( "data/info.json", function( data ) {
                 var y = _this.game.world.height * 0.3;
                 for(var i = 0;i<data.length;i++){
                     var text=data[i].text;  
