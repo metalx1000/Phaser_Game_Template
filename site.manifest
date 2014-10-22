@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413937701
+# version 1413941810
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -33,8 +33,6 @@ CACHE MANIFEST
 ./README.md
 ./scripts/phaser.js
 ./scripts/jquery.js
-./scripts/image_array.sh
-./scripts/test.sh
 ./get_template.sh
 ./favicon.png
 ./data/info.json
