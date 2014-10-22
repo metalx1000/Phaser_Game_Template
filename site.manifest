@@ -1,10 +1,9 @@
 CACHE MANIFEST
 
-# version 1413235674
+# version 1413937701
 ./credit.info
 ./css/basic.css
 ./index.html
-./update.sh
 ./res/game_title.png
 ./res/sounds/touch1.mp3
 ./res/sounds/click.mp3
@@ -34,12 +33,14 @@ CACHE MANIFEST
 ./README.md
 ./scripts/phaser.js
 ./scripts/jquery.js
+./scripts/image_array.sh
 ./scripts/test.sh
 ./get_template.sh
 ./favicon.png
 ./data/info.json
+./data/images.js
+./info.json
 ./LICENSE
-./test.sh
 ./js/gametitle.js
 ./js/preload.js
 ./js/boot.js

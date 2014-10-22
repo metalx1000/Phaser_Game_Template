@@ -27,10 +27,7 @@ preload.prototype = {
                 this.game.load.audio('touch' + i, ['res/sounds/touch'+i+'.mp3','res/sounds/touch'+i+'.ogg']);
             }
 
-            var images = ["play_btn","game_title","click_me","game_over","start_over","main_title","simon","brick","exit", "info"];
-            for(var i = 0; i < images.length;i++){
-                this.game.load.image(images[i],"res/" + images[i] + ".png");
-            }
+            this.load_images();
 
             //music: https://www.youtube.com/watch?v=qFQP_A4Vacc
             this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
@@ -69,6 +66,18 @@ preload.prototype = {
         fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
             //console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
             load_text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
+        },
+
+        load_images: function(){
+            _this = this;
+            $.getJSON( "data/images.js", function( data ) {
+                for(var i = 0;i<data.length;i++){
+                    var image=data[i];
+                    _this.game.load.image(image,"res/" + image + ".png");
+                }
+
+            });
+
         }
 
 }

@@ -1,0 +1,1 @@
+["brick","click_me","exit","game_over","game_title","info","load_ani","main_title","play_btn","simon","start_over"]
